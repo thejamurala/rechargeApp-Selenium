@@ -1,5 +1,5 @@
 /**
- * 
+ * Landing Page is the first page where user key in the provider, Mobile number and amount.
  */
 package test.functional.com.recharge;
 
@@ -19,7 +19,6 @@ public class LandingPageTest {
 	public LandingPageTest(WebDriver driver) {
 		this.driver = driver;
 	}
-	
 	
 	public void testRechargeDetailsPage() {
 		//Hold the execution until the specified item intractable
@@ -48,5 +47,6 @@ public class LandingPageTest {
 		next.click();
 		
 	}
+	
 
 }

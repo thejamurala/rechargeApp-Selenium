@@ -1,5 +1,8 @@
 package test.functional.com.recharge.main;
 
+/**
+ * Main class to start Selenium execution
+ */
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,6 +34,7 @@ public class RechargeAppMainTest {
 		ICustomInputStreamReader reader = new CustomInputStreamReader();
 		IBrowser browser = new BrowserImpl();
 		
+		//Functional interface using reference 
 		Function  <Void, String> fi =  reader::getUserInput;
 		WebDriver driver = browser.getDriver(Browser.valueOf(fi.apply(null)));
 
@@ -66,5 +70,6 @@ public class RechargeAppMainTest {
 		driver.close();
 		
 	}
+	
 	
 }

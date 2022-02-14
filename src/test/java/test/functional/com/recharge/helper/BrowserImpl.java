@@ -1,5 +1,6 @@
 /**
- * 
+ * Class is responsible to set driver properties and corresponding browser based upon the user selection.
+ * User can launch any available browser to run the applicaiton automation
  */
 package test.functional.com.recharge.helper;
 

@@ -1,5 +1,5 @@
 /**
- * 
+ * Payment details page is responsible for providing user interface to select multiple options for user to make a payment
  */
 package test.functional.com.recharge;
 
@@ -28,7 +28,6 @@ public class PaymentDetailsPageTest {
 		RechargeAppUtils.waitOnFieldForXPath(driver, RechargeAPPConstants.CARD_XPATH);
 		
 		WebElement card = driver.findElement(By.xpath(RechargeAPPConstants.CARD_XPATH));
-//		RechargeAppUtils.waitOnFieldForXPath(driver, RechargeAPPConstants.CARD_XPATH);
 		RechargeAppUtils.sleepFor(1000);
 		card.click();
 		
@@ -40,10 +39,8 @@ public class PaymentDetailsPageTest {
 		//find cardNubmer element
 		WebElement cardnumber = driver.findElement(By.id("cardnumberunique"));
 		RechargeAppUtils.waitOnFieldById(driver, "cardnumberunique");
-//		RechargeAppUtils.sleepFor(5000);
 		cardnumber.sendKeys("4111111111111111");
 
-//		RechargeAppUtils.sleepFor(100);
 		//find expiryMonth element
 		WebElement expiryMonth = driver.findElement(By.xpath("//*[@id=\"payment-form\"]/div[3]/div[1]/div/div[1]/input"));
 		expiryMonth.sendKeys("11");
@@ -60,5 +57,6 @@ public class PaymentDetailsPageTest {
 		WebElement email1 = driver.findElement(By.xpath("/html/body/div[34]/div[1]/div[3]/div/div[1]/div/div/div[2]/div[2]/div/div/div/div/div/div/div[1]/table/tbody/tr[2]/td/div/div/div[2]/form/div[4]/div/div/input"));
 		email1.sendKeys("test@test.com");
 	}
+	
 
 }

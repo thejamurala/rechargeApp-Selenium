@@ -1,5 +1,5 @@
 /**
- * 
+ * It provides multiple browser options to launch selenium test automation
  */
 package test.functional.com.recharge.helper;
 
