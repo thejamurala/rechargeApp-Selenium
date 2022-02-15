@@ -48,9 +48,21 @@ public class RechargeAppUtils {
 	 * @param xPath
 	 */
 	public static void waitOnFieldForXPath(WebDriver driver, String xPath) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(50000));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
 		By  xPathBy = By.xpath(xPath);
 		ExpectedCondition<WebElement> condition = ExpectedConditions.elementToBeClickable(xPathBy);
+		wait.until(condition);
+	}
+	
+	/**
+	 * Hold the control until web elements are found with element id
+	 * @param driver
+	 * @param name
+	 */
+	public static void waitOnFieldByClassName(WebDriver driver, String className) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10000));
+		By  classBy = By.id(className);
+		ExpectedCondition<WebElement> condition = ExpectedConditions.presenceOfElementLocated(classBy);
 		wait.until(condition);
 	}
 	
