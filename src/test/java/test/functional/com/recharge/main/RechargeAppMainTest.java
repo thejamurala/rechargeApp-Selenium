@@ -49,12 +49,23 @@ public class RechargeAppMainTest {
 		//Load application in the specified browser
 		driver.get(RechargeAPPConstants.APP_URL);
 
+		/**
+		 * Page -1 :  Landing  Page Automation
+		 */
 		//Invoke RechargeDetailsPage to run tests
 		LandingPageTest detailsPageTest = new LandingPageTest(driver);
 		detailsPageTest.testRechargeDetailsPage();
 
 
-		//Invoke AddNewCardDetails to run tests
+		/**
+		 * Page - 2 : Payment Details page
+		 */
+		
+		// ####Assertion to check the Verification page is loaded ####
+		WebElement paymentPageAssertion = driver.findElement(By.xpath("/html/body/div[34]/div[1]/div[3]/div/div[2]/div/div/div[1]"));
+		assertTrue("Resumen de la compra".equals(paymentPageAssertion.getText()));
+		
+		//Invoke  Payment Details page to run tests
 		PaymentDetailsPageTest newCardTest = new PaymentDetailsPageTest(driver);
 		newCardTest.testNewCardDetailsPage();
 
@@ -62,7 +73,11 @@ public class RechargeAppMainTest {
 		WebElement pay = driver.findElement(By.id("paylimit"));
 		pay.click();
 
+		/**
+		 * Page - 3 : User Login page
+		 */
 		//Invoke UserLoginPage to provide authentication details
+
 		UserLoginPageTest loginPageTest = new UserLoginPageTest(driver);
 		loginPageTest.testUserLoginPage();
 
@@ -71,14 +86,23 @@ public class RechargeAppMainTest {
 		RechargeAppUtils.waitOnFieldByName(driver, "loginbtn");
 		button.click();
 	
+		/**
+		 *  Page - 3.a: Confirmation Page only  when the  previous recharge < 5 min
+		 */
 		//Validate Recharge  confirmation page if exists (If the previous recharge has been made less than 5 minutes)
 		RechargeConfirmationPageTest rechargeConfirmation = new RechargeConfirmationPageTest(driver);
 		rechargeConfirmation.testRechargeConfirationPage();
 		
+		/**
+		 *  Page - 4.a: Notification Popoup window (to accept cookies)
+		 */
 		//Validate if POP exists then cancel
 		NotificationPopupWindowTest popupWindow = new NotificationPopupWindowTest(driver);
 		popupWindow.validatePopupExists();
 		
+		/**
+		 * Page - 4.b: Confirmation  Page
+		 */
 		//Define an element to find successful response
 		WebElement messageElement  =  driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/div[1]/div[1]/div[1]/div[2]"));
 		
